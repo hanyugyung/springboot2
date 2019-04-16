@@ -1,4 +1,4 @@
-package org.bwyou.springboot2.exceptions;
+ï»¿package org.bwyou.springboot2.exceptions;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
@@ -31,7 +31,7 @@ public class WebException extends RuntimeException {
 	public WebException(HttpStatus status, Exception ex) {
 		super(ex);
 		StringWriter errors = new StringWriter();
-		ex.printStackTrace(new PrintWriter(errors));	//º¸¾È »ó Æ®·¹ÀÌ½º °ªÀº º¸¿©ÁÖÁö ¸»ÀÚ. µğ¹ö±× ¸ğµå¿¡¼­´Â º¸¿© ÁÖ°Ô ÇÏ´Â °Íµµ ÁÁÀ» µí
+		ex.printStackTrace(new PrintWriter(errors));	//ë³´ì•ˆ ìƒ íŠ¸ë ˆì´ìŠ¤ ê°’ì€ ë³´ì—¬ì£¼ì§€ ë§ì. ë””ë²„ê·¸ ëª¨ë“œì—ì„œëŠ” ë³´ì—¬ ì£¼ê²Œ í•˜ëŠ” ê²ƒë„ ì¢‹ì„ ë“¯
 		body = new WebStatusMessageBody("E" + String.format("%03d", status.value())
 							, ex.getMessage() != null ? ex.getMessage() : ex.toString(), /*errors.toString()*/"", "");
 		body.setStatus(status.value());
