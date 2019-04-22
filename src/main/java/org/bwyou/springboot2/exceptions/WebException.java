@@ -9,8 +9,8 @@ import org.springframework.validation.BindingResult;
 
 public class WebException extends RuntimeException {
 
-	private static final long serialVersionUID = 3584021599514020963L;
-
+	private static final long serialVersionUID = 788198260815252665L;
+	
 	WebStatusMessageBody body;
 	BindingResult bindingResult;
 

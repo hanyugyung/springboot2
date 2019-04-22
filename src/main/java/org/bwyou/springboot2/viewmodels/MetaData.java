@@ -27,4 +27,15 @@ public class MetaData {
 		this.isFirstPage = result.isFirst();
 		this.isLastPage = result.isLast();
 	}
+	
+	public MetaData(long totalItemCount, int pageIndex, int pageSize) {
+		this.totalItemCount = totalItemCount;
+		this.totalPageCount = (int) Math.ceil(totalItemCount * 1.0 / pageSize);
+		this.pageIndex = pageIndex;
+		this.pageSize = pageSize;
+		this.hasNextPage = this.totalPageCount > pageIndex;
+		this.hasPreviousPage = pageIndex > 1;
+		this.isFirstPage = pageIndex == 1;
+		this.isLastPage = pageIndex >= this.totalPageCount;
+	}
 }
