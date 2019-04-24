@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 public class BWExceptionHandler {
 
-	public class Config {
+	public static class Config {
 		final List<String> apiUriAntPatterns;
 		final String webExceptionViewName;
 
