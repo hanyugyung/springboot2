@@ -10,6 +10,10 @@ public class WebStatusMessageBody {
 	String link;
 	String developerMessage;
 
+	public WebStatusMessageBody() {
+
+	}
+	
 	public WebStatusMessageBody(String code, String message, String developerMessage, String link) {
 		this.code = code;
 		this.message = message;

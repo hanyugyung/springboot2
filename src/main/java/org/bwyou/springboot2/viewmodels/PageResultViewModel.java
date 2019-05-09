@@ -9,6 +9,11 @@ public class PageResultViewModel<T> {
 	Iterable<T> result;
 	MetaData metaData;
 
+	public PageResultViewModel()
+    {
+
+    }
+	
 	public PageResultViewModel(Iterable<T> result)
     {
         this.result = result;

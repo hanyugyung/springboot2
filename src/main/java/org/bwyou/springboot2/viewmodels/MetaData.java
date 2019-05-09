@@ -16,6 +16,10 @@ public class MetaData {
 	private boolean isFirstPage;
 	private boolean isLastPage;
 	
+	public MetaData()
+    {
+
+    }
 
 	public MetaData(Page<?> result) {
 		this.totalItemCount = result.getTotalElements();

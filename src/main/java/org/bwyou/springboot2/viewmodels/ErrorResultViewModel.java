@@ -17,6 +17,11 @@ public class ErrorResultViewModel {
 	private WebStatusMessageBody error;
 	private List<ValidationObjectError> modelValidResult;
 	
+	public ErrorResultViewModel()
+    {
+
+    }
+	
 	public ErrorResultViewModel(HttpStatus httpStatusCode, String message)
     {
 		error = new WebStatusMessageBody("E" + String.format("%03d", httpStatusCode.value()), message, "", "");

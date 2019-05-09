@@ -7,17 +7,17 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.validation.BindingResult;
 
 public interface IEntityService<TEntity, TId> {
-	List<TEntity> GetList();
-	List<TEntity> GetList(String sort);
-	Page<TEntity> GetList(String sort, int pageNumber, int pageSize);
-	List<TEntity> GetFilteredList(Specification<TEntity> spec);
-	List<TEntity> GetFilteredList(Specification<TEntity> spec, String sort);
-	Page<TEntity> GetFilteredList(Specification<TEntity> spec, String sort, int pageNumber, int pageSize);
+	List<TEntity> getList();
+	List<TEntity> getList(String sort);
+	Page<TEntity> getList(String sort, int pageNumber, int pageSize);
+	List<TEntity> getFilteredList(Specification<TEntity> spec);
+	List<TEntity> getFilteredList(Specification<TEntity> spec, String sort);
+	Page<TEntity> getFilteredList(Specification<TEntity> spec, String sort, int pageNumber, int pageSize);
 	
-    TEntity Get(int id);
-    TEntity Get(Specification<TEntity> spec);
-    TEntity ValidAndCreate(TEntity entity, BindingResult bindingResult);
-    List<TEntity> ValidAndCreate(List<TEntity> entities, BindingResult bindingResult);
-    TEntity ValidAndUpdate(int id, TEntity entity, BindingResult bindingResult);
-    int ValidAndDelete(int id, BindingResult bindingResult);
+    TEntity get(TId id);
+    TEntity get(Specification<TEntity> spec);
+    TEntity validAndCreate(TEntity entity, BindingResult bindingResult);
+    List<TEntity> validAndCreate(List<TEntity> entities, BindingResult bindingResult);
+    TEntity validAndUpdate(TId id, TEntity entity, BindingResult bindingResult);
+    TEntity validAndDelete(TId id, BindingResult bindingResult);
 }
