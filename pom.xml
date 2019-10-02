@@ -5,7 +5,7 @@
 
 	<groupId>org.bwyou</groupId>
 	<artifactId>springboot2</artifactId>
-	<version>0.2.1</version>
+	<version>0.3.0</version>
 	<packaging>jar</packaging>
 
 	<name>springboot2</name>
