@@ -7,12 +7,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.bwyou.springboot2.viewmodels.ErrorResultViewModel;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.AntPathMatcher;
 import org.springframework.web.servlet.ModelAndView;
 
 public class BWExceptionHandler {
+	
+	private static final Logger logger = LoggerFactory.getLogger(BWExceptionHandler.class);
 
 	public static class Config {
 		final List<String> apiUriAntPatterns;
@@ -45,6 +49,8 @@ public class BWExceptionHandler {
 		WebException ex = getWebException(exraw);
 
 		String requestUri = getRequestUri(request);
+
+		logger.warn(String.format("%s %s [locale : %s] Exception Cathed! [Exception(%s) : %s]", request.getMethod(), requestUri, locale, ex.getBody().getStatus(), ex.getBody().getMessage()));
 
 		if (isApiUri(requestUri)) { // api 여부는 url로 확인 한다.
 			return returnMV4ApiWebException(ex);
