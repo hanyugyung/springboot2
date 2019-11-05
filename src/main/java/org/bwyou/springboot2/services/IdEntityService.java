@@ -137,6 +137,20 @@ public class IdEntityService<TEntity extends IdModel<TId>, TId> implements IEnti
 		return target;
 	}
 
+	@Override
+	public Iterable<TId> validAndDelete(Iterable<TId> ids, BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) {
+			return null;
+        }
+		List<TEntity> targets = daoRepository.findAllById(ids);
+		if (targets == null) {
+			return null;
+        }
+		daoRepository.deleteAll(targets);
+		
+		return ids;
+	}
+
 	public void copyNonNullAndUpdatableProperties(TEntity src, TEntity target, Boolean ignoreNull, Boolean updatableAttributeRequired, ArrayList<String> necessaryAddFields) {
 	    BeanUtils.copyProperties(src, target, getNotUpdatePropertiesNameArray(src, ignoreNull, updatableAttributeRequired, necessaryAddFields));
 	}

@@ -31,4 +31,5 @@ public interface IEntityService<TEntity, TId> {
     List<TEntity> validAndCreate(List<TEntity> entities, BindingResult bindingResult);
     TEntity validAndUpdate(TId id, TEntity entity, BindingResult bindingResult);
     TEntity validAndDelete(TId id, BindingResult bindingResult);
+    Iterable<TId> validAndDelete(Iterable<TId> ids, BindingResult bindingResult);
 }
