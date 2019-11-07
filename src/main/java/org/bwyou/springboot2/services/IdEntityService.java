@@ -273,5 +273,20 @@ public class IdEntityService<TEntity extends IdModel<TId>, TId> implements IEnti
 	    }
 
 	    return fields;
+	}
+
+	@Override
+	public List<TEntity> getFilteredList(TEntity model) {
+		return getFilteredList(GetWhereClause(model));
+	}
+
+	@Override
+	public List<TEntity> getFilteredList(TEntity model, String sort) {
+		return getFilteredList(GetWhereClause(model), sort);
+	}
+
+	@Override
+	public Page<TEntity> getFilteredList(TEntity model, String sort, int pageNumber, int pageSize) {
+		return getFilteredList(GetWhereClause(model), sort, pageNumber, pageSize);
 	}	
 }

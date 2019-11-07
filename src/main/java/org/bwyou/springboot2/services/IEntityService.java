@@ -17,9 +17,9 @@ public interface IEntityService<TEntity, TId> {
 	
 	//TODO 아래 작업 필요.
 //	List<TEntity> getFilteredList(Specification<TEntity> spec, String sort, String limitBaseColName, TId after, TId before, int limit);
-//	List<TEntity> getFilteredList(TEntity model);
-//	List<TEntity> getFilteredList(TEntity model, String sort);
-//	Page<TEntity> getFilteredList(TEntity model, String sort, int pageNumber, int pageSize);
+	List<TEntity> getFilteredList(TEntity model);
+	List<TEntity> getFilteredList(TEntity model, String sort);
+	Page<TEntity> getFilteredList(TEntity model, String sort, int pageNumber, int pageSize);
 //	List<TEntity> getFilteredList(TEntity model, String sort, String limitBaseColName, TId after, TId before, int limit);
 	
 	
