@@ -11,7 +11,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @MappedSuperclass
-public class IdModel<TId> implements IIdModel<TId> {
+public abstract class IdModel<TId> implements IIdModel<TId> {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

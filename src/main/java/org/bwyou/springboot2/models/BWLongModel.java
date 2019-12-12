@@ -1,5 +1,9 @@
 package org.bwyou.springboot2.models;
 
-public class BWLongModel extends BWModel<Long> {
+import javax.persistence.MappedSuperclass;
+
+
+@MappedSuperclass
+public abstract class BWLongModel extends BWModel<Long> {
 
 }

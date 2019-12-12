@@ -242,7 +242,7 @@ public class IdEntityService<TEntity extends IdModel<TId>, TId> implements IEnti
 		
 	}	
 
-	protected Sort GetOrderClause(String sort){
+	public static Sort GetOrderClause(String sort){
 		String[] sortInfoArray = sort.split(",");
 
 		List<Order> orders = new ArrayList<>();

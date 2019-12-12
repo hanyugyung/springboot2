@@ -5,7 +5,7 @@
 
 	<groupId>org.bwyou</groupId>
 	<artifactId>springboot2</artifactId>
-	<version>0.3.3</version>
+	<version>0.3.4</version>
 	<packaging>jar</packaging>
 
 	<name>springboot2</name>
@@ -31,8 +31,8 @@
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<java.version>1.8</java.version>
-	   	<maven.compiler.source>1.8</maven.compiler.source>
-   		<maven.compiler.target>1.8</maven.compiler.target>
+		<maven.compiler.source>1.8</maven.compiler.source>
+		<maven.compiler.target>1.8</maven.compiler.target>
 	</properties>
 
 	<dependencyManagement>
@@ -69,12 +69,18 @@
 			<artifactId>lombok</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		
+
 		<!-- Annotation 검색 처리 -->
 		<dependency>
-		    <groupId>net.kaczmarzyk</groupId>
-		    <artifactId>specification-arg-resolver</artifactId>
-		    <version>2.1.1</version>
+			<groupId>net.kaczmarzyk</groupId>
+			<artifactId>specification-arg-resolver</artifactId>
+			<version>2.1.1</version>
+		</dependency>
+
+		<!-- querydsl 호환용. @QueryEntities 처리 -->
+		<dependency>
+			<groupId>com.querydsl</groupId>
+			<artifactId>querydsl-jpa</artifactId>
 		</dependency>
 
 	</dependencies>

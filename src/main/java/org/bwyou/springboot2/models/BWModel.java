@@ -18,7 +18,7 @@ import lombok.Setter;
 @Setter
 @EntityListeners(value = { AuditingEntityListener.class })
 @MappedSuperclass
-public class BWModel<TId> extends IdModel<TId> implements ICUModel {
+public abstract class BWModel<TId> extends IdModel<TId> implements ICUModel {
 	
 	@CreatedDate
     @Column(nullable = false, updatable=false)
