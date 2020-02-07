@@ -5,6 +5,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,6 +19,7 @@ public abstract class IdModel<TId> implements IIdModel<TId> {
     @GeneratedValue(strategy = GenerationType.AUTO)
 	private TId id;
     
+    @JsonIgnore
 	@Override
 	public String getKeyName() {
 		return "Id";
