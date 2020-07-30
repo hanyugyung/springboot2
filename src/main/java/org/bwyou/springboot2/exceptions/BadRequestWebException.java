@@ -2,6 +2,7 @@ package org.bwyou.springboot2.exceptions;
 
 import org.bwyou.springboot2.viewmodels.WebStatusMessageBody;
 import org.springframework.http.HttpStatus;
+import org.springframework.validation.BindingResult;
 
 public class BadRequestWebException extends WebException {
 
@@ -17,5 +18,9 @@ public class BadRequestWebException extends WebException {
 
 	public BadRequestWebException() {
 		super(HttpStatus.BAD_REQUEST, new Exception(HttpStatus.BAD_REQUEST.getReasonPhrase()));
+	}
+	
+	public BadRequestWebException(BindingResult bindingResult) {
+		super(HttpStatus.BAD_REQUEST, new Exception(HttpStatus.BAD_REQUEST.getReasonPhrase()), bindingResult);
 	}
 }
