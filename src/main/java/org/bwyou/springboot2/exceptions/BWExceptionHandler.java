@@ -2,16 +2,21 @@ package org.bwyou.springboot2.exceptions;
 
 import java.util.List;
 import java.util.Locale;
+import java.util.Optional;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.bwyou.springboot2.viewmodels.ErrorResultViewModel;
+import org.hibernate.cfg.annotations.Nullability;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.util.AntPathMatcher;
+import org.springframework.web.HttpRequestMethodNotSupportedException;
+import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 import org.springframework.web.servlet.ModelAndView;
 
 public class BWExceptionHandler {
@@ -102,12 +107,17 @@ public class BWExceptionHandler {
 	}
 	
 	private WebException getWebException(Exception exraw) {
-		WebException ex = null;
 		if (exraw instanceof WebException) {
-			ex = (WebException) exraw;
-		} else {
-			ex = new WebException(exraw);
+			return (WebException) exraw;
 		}
-		return ex;
+		
+		Optional<MvcException> mvcException = MvcException.fromText(exraw.getClass().getSimpleName());
+		if(mvcException.isPresent()) {
+			return mvcException.get().getMvcException(exraw);
+		}else {
+			return new WebException(exraw);
+		}
+
+		
 	}
 }
