@@ -111,7 +111,6 @@ public class BWExceptionHandler {
 			return (WebException) exraw;
 		}
 		
-		String nameString = exraw.getClass().getSimpleName();
 		Optional<MvcException> mvcException = MvcException.fromText(exraw.getClass().getSimpleName());
 		if(mvcException.isPresent()) {
 			return mvcException.get().getMvcException(exraw);
