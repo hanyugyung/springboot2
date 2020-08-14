@@ -1,4 +1,4 @@
-﻿package org.bwyou.springboot2.exceptions;
+package org.bwyou.springboot2.exceptions;
 
 import java.io.PrintWriter;
 import java.io.StringWriter;
